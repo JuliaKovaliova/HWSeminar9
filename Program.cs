@@ -22,6 +22,7 @@ void ShowIntegersFromN (int n, int m)
         if (n<0 || n==0) Console.WriteLine("Error");
 }
 
+Console.WriteLine();
 Console.WriteLine("Задача 64:");
 int n = Input("Enter positive integer: ");
 ShowIntegersFromN(n,1);
@@ -45,3 +46,22 @@ Console.WriteLine("Задача 66:");
 int firstNum = Input ("Enter first number: ");
 int secondNum = Input ("Enter second number: ");
 Console.WriteLine(SumIntegersFromMToN(firstNum, secondNum));
+
+// Напишите программу вычисления функции Аккермана
+// с помощью рекурсии. Даны два неотрицательных числа m и n.
+// m = 2, n = 3 -> A(m,n) = 9
+// m = 3, n = 2 -> A(m,n) = 29
+
+int Akkerman (int m, int n)
+{
+  if (m == 0) return n + 1;
+  if (m > 0 && n == 0) return Akkerman(m - 1, 1);
+  else return Akkerman(m - 1, Akkerman(m, n - 1));
+}
+
+Console.WriteLine();
+Console.WriteLine("Задача 68*:");
+int a = Input ("Enter first number: ");
+int b = Input ("Enter second number: ");
+Console.WriteLine($"A({a},{b}) = {Akkerman(a, b)}");
+Console.WriteLine();
